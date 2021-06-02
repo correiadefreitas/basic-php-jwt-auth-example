@@ -43,6 +43,7 @@
     // Inserts the jwt to the store object
     store.setJWT = function (data) {
       this.JWT = data;
+	  console.log("JWT:"+data)
     };
 
     loginButton.addEventListener('submit', async (e) => {

@@ -26,7 +26,7 @@ $secretKey  = 'bGS6lzFqvvSQ8ALbOxatm7/Vk7mLQyzqaS34Q4oR1ew=';
 JWT::$leeway += 60;
 $token = JWT::decode((string)$jwt, $secretKey, ['HS512']);
 $now = new DateTimeImmutable();
-$serverName = "your.domain.name";
+$serverName = "localhost";
 
 if ($token->iss !== $serverName ||
     $token->nbf > $now->getTimestamp() ||
@@ -38,4 +38,6 @@ if ($token->iss !== $serverName ||
 
 // The token is valid, so send the response back to the user
 // ...
-printf("Current timestamp is %s", (new \DateTimeImmutable())->getTimestamp());
+//printf("Current timestamp is %s", (new \DateTimeImmutable())->getTimestamp());
+
+printf("token %s", $token->data->userName);

@@ -16,8 +16,9 @@ if ($hasValidCredentials) {
     $tokenId    = base64_encode(random_bytes(16));
     $issuedAt   = new DateTimeImmutable();
     $expire     = $issuedAt->modify('+6 minutes')->getTimestamp();      // Add 60 seconds
-    $serverName = "your.domain.name";
-    $username   = "username";                                           // Retrieved from filtered POST data
+    $serverName = "localhost";
+	$username   = key($_POST);
+	//$username   = "username";                                           // Retrieved from filtered POST data
 
     // Create the token as an array
     $data = [
